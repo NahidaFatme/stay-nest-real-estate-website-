@@ -24,9 +24,9 @@ const Navbar = () => {
                     
                     </ul>
                 </div> 
-                <div className="navbar-end flex flex-col lg:flex-row gap-2 lg:gap-0">
-                    <a className="btn bg-[#ff6725] lg:mr-4 text-white text-base lg:text-lg font-semibold">Login</a>
-                </div>
+                <Link to="/Login" className="navbar-end flex flex-col lg:flex-row gap-2 lg:gap-0" >
+                    <a className="btn bg-[#ff6725] lg:mr-4 text-white text-base lg:text-lg font-semibold"> Login</a>
+                </Link>
             </div>
         </div>
     );

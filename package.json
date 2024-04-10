@@ -13,6 +13,7 @@
     "@tsparticles/all": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
+    "animate.css": "^4.1.1",
     "firebase": "^10.10.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
