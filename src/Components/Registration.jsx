@@ -7,8 +7,12 @@ import { FaEye } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Registration = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile, loading, setUser } = useContext(AuthContext);
     const [showpassword, setShowPassword] = useState(false);
+
+    if (loading) {
+        return <span className="loading loading-spinner loading-lg"></span>
+    }
 
     const handleRegistration = e => {
         e.preventDefault();
@@ -35,6 +39,12 @@ const Registration = () => {
             const user = result.user;
             updateUserProfile(name, photoURL)
             .then( () => {
+                const updatedUser = {
+                    ...user,
+                    displayName: name,
+                    photoURL: photoURL,
+                };
+                setUser(updatedUser);
                 toast.success("Registration successful");
                 console.log(user);
             })

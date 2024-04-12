@@ -5,8 +5,10 @@ import { FaHotel } from "react-icons/fa6"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    const { user, logOut, loading } = useContext(AuthContext);
+    if (loading) {
+        return <span className="loading loading-spinner loading-lg"></span>
+    }
     const handleLogout = () => {
         logOut()
         .then(() => {
@@ -43,18 +45,18 @@ const Navbar = () => {
                     {
                         user ? <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle">
-                                <div className="w-10 rounded-full" title= {user.displayName}> 
-                                    <img src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                <div className="w-16 rounded-full" title= {user.displayName}> 
+                                    <img src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} className="rounded-full" />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-2xl font-semibold">
+                            <ul tabIndex={0} className="mt-3 z-[1] p-3 shadow menu menu-md dropdown-content bg-base-100 rounded-box w-52 text-2xl font-semibold">
                                 <li className="hover:text-[#ff6725]">
                                     <Link to="/Profile">
                                     User Profile
                                     </Link>
                                 </li>
                                 <li className="hover:text-[#ff6725]">
-                                    <Link>
+                                    <Link to="/Update">
                                     Update Profile
                                     </Link>
                                 </li>

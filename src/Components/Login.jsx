@@ -9,8 +9,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const { loginUser, loginGoogle } = useContext(AuthContext);
+    const { loginUser, loginGoogle, loading } = useContext(AuthContext);
     const provider = new GoogleAuthProvider();
+
+    if (loading) {
+        return <span className="loading loading-spinner loading-lg"></span>
+    }
 
     const handleLogin = e => {
         e.preventDefault();
@@ -38,10 +42,6 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             toast.success("Signed in with Google");
-            // let name = result.user.displayName;
-            // const photo = result.user.photoURL;
-            // setName(name);
-            // setPhoto(photo);
             
         })
         .catch(error => {
