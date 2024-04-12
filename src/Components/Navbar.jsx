@@ -1,6 +1,21 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "./AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import { FaHotel } from "react-icons/fa6"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+    const handleLogout = () => {
+        logOut()
+        .then(() => {
+            toast.success("Logout successful");
+          })
+        .catch(error => {
+            toast.error(error.message);
+          });
+    };
     return (
         <div>
             <div className="navbar pt-8 ">
@@ -20,13 +35,40 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">
-                    <li className="text-xl bg-transparent hover:text-[#ff6725] rounded-xl"><Link to="/">Home</Link></li>
+                    <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><Link to="/">Home</Link></li>
                     
                     </ul>
                 </div> 
-                <Link to="/Login" className="navbar-end flex flex-col lg:flex-row gap-2 lg:gap-0" >
-                    <a className="btn bg-[#ff6725] lg:mr-4 text-white text-base lg:text-lg font-semibold"> Login</a>
-                </Link>
+                <div className="navbar-end">
+                    {
+                        user ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle">
+                                <div className="w-10 rounded-full" title= {user.displayName}> 
+                                    <img src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 text-2xl font-semibold">
+                                <li className="hover:text-[#ff6725]">
+                                    <Link to="/Profile">
+                                    User Profile
+                                    </Link>
+                                </li>
+                                <li className="hover:text-[#ff6725]">
+                                    <Link>
+                                    Update Profile
+                                    </Link>
+                                </li>
+                                <li className="hover:text-[#ff6725]">
+                                    <button onClick={handleLogout} className="">Logout</button>    
+                                </li>
+                            </ul>
+                        </div>
+                        :
+                        <Link to="/Login" className="navbar-end flex flex-col lg:flex-row gap-2 lg:gap-0" >
+                        <a className="btn bg-[#ff6725] lg:mr-4 text-white text-base lg:text-lg font-semibold"> Login</a>
+                        </Link>
+                    }
+                </div>
             </div>
         </div>
     );

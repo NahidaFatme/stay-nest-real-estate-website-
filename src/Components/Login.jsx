@@ -1,8 +1,55 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "./AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import 'animate.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
+    const { loginUser, loginGoogle } = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password);
+
+        loginUser(email, password)
+        .then(result => {
+            // Signed in 
+            const user = result.user;
+            toast.success("Login successful");
+            console.log(user);
+            // ...
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            console.error(errorMessage);
+            toast.error("Invalid email or password");
+          });
+    };
+
+    const handleSigninGoogle = () => {
+        loginGoogle(provider)
+        .then(result => {
+            const user = result.user;
+            toast.success("Signed in with Google");
+            // let name = result.user.displayName;
+            // const photo = result.user.photoURL;
+            // setName(name);
+            // setPhoto(photo);
+            
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            toast.error(errorMessage);
+        });
+    };
     return (
         <div>
            <div className="hero min-h-screen">
@@ -17,18 +64,18 @@ const Login = () => {
                         </h1>
                     </div>
                     <div className="card shrink-0 w-full h-full max-w-sm shadow-2xl bg-base-100 animate__animated animate__backInUp">
-                    <form className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
                         <button className="btn bg-[#ff6725] text-lg text-white">Login</button>
@@ -37,7 +84,7 @@ const Login = () => {
                         <div className="flex flex-col gap-3 justify-center items-center">
                             <p>or signin with</p>
                             <div className="flex gap-3 text-4xl">
-                                <button><FcGoogle /></button>
+                                <button onClick={handleSigninGoogle}><FcGoogle /></button>
                                 <button><FaGithub  /></button>
                             </div>
                         </div>

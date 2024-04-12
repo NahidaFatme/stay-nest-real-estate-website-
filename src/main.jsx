@@ -11,11 +11,15 @@ import {
 import Root from './Root.jsx';
 import Login from './Components/Login.jsx';
 import Registration from './Components/Registration.jsx';
-  
+import AuthProvider from './Components/AuthProvider.jsx';
+import ErrorPage from "./Components/error-page.jsx";
+import Profile from './Components/Profile.jsx';
+
  const router = createBrowserRouter([ 
   { 
   path: "/", 
   element: <Root></Root>, 
+  errorElement: <ErrorPage />,
   children: [
     { path: "/",
       element: <Home></Home>
@@ -26,6 +30,10 @@ import Registration from './Components/Registration.jsx';
     {
       path: "/Registration",
       element: <Registration></Registration>
+    },
+    {
+      path: "/Profile",
+      element: <Profile></Profile>
     }
   ]
   }, 
@@ -33,6 +41,8 @@ import Registration from './Components/Registration.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router} /> 
+    <AuthProvider>
+      <RouterProvider router={router} /> 
+    </AuthProvider>
   </React.StrictMode>,
 )

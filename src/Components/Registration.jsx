@@ -1,8 +1,50 @@
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "./AuthProvider";
 import { Link } from "react-router-dom";
 import 'animate.css';
+import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Registration = () => {
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [showpassword, setShowPassword] = useState(false);
+
+    const handleRegistration = e => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photoURL = e.target.URL.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        
+        if (password.length < 6){
+            toast.error("Password must be at least 6 characters");
+            return;
+        }
+        else if (!/[A-Z]/.test(password)){
+            toast.error("Password should contain Uppercase characters");
+            return;
+        }
+        else if (!/[a-z]/.test(password)){
+            toast.error("Password should contain Lowercase characters");
+            return;
+        }
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            updateUserProfile(name, photoURL)
+            .then( () => {
+                toast.success("Registration successful");
+                console.log(user);
+            })
+          })
+          .catch(error => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+          });
+    };
     return (
         <div>
            <div className="hero min-h-screen">
@@ -18,30 +60,41 @@ const Registration = () => {
                         </h1>
                     </div>
                     <div className="card shrink-0 w-full h-full max-w-sm shadow-2xl bg-base-100 animate__animated animate__backInUp">
-                    <form className="card-body">
+                    <form onSubmit={handleRegistration} className="card-body">
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" placeholder="name" className="input input-bordered" required />
+                        <input type="text" name="name" placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" placeholder="URL" className="input input-bordered" required />
+                        <input type="text" name="URL" placeholder="URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
+                        <div className="relative flex">
+                        <input 
+                            type={showpassword ? "text" : "password"} 
+                            name="password" 
+                            placeholder="password" 
+                            className="input input-bordered grow" required />
+                        <span onClick={ () => setShowPassword(!showpassword)} className="absolute right-4 text-2xl top-3">
+                            {
+                                showpassword ? <FaEyeSlash /> : <FaEye />
+                            }
+                        </span>
+                        </div>
                         </div>
                         <div className="form-control mt-6">
                         <button className="btn bg-[#ff6725] text-lg text-white">Complete Registration</button>
