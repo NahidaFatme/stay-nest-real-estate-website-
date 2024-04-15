@@ -39,7 +39,6 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">
                     <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><Link to="/">Home</Link></li>
-                    <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><a href="#estates">Estates</a></li>
                     <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><Link to="/Contact">Contact Us</Link></li>
                     
                     </ul>

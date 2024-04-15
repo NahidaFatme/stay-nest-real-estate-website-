@@ -36,7 +36,10 @@ const EstateDetails = () => {
                 <h2 className="card-title font-bold text-4xl">{estate.estate_title}</h2>
                 <p className="text-gray-500 text-xl text-semibold">{estate.segment_name}</p>
                 <hr />
-                <h2 className="font-bold text-4xl text-red-600">{estate.price} <span className="text-base text-gray-600 text-normal">per night</span></h2>
+                <div className="flex justify-between">
+                    <h2 className="font-bold text-4xl text-red-600">{estate.price} <span className="text-base text-gray-600 text-normal">per night</span></h2>
+                    <h2 className="font-bold text-2xl text-white bg-emerald-400 p-2 px-8 rounded-lg">{estate.status}</h2>
+                </div>
                 <p className="text-gray-500 text-lg text-semibold">{estate.area}</p>
                 <p className="text-xl font-black">Facilities</p>
                 <div className="flex justify-evenly gap-10">
