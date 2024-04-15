@@ -17,7 +17,7 @@ import Profile from './Components/Profile.jsx';
 import Update from './Components/Update.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import EstateDetails from './Components/EstateDetails.jsx';
-
+import "leaflet/dist/leaflet.css";
  const router = createBrowserRouter([ 
   { 
   path: "/", 

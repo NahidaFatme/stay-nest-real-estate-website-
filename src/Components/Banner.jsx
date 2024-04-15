@@ -10,6 +10,7 @@ import { GiFamilyHouse } from "react-icons/gi";
 import { MdConnectWithoutContact } from "react-icons/md";
 import 'animate.css';
 import Estate from './Estate';
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 const Banner = () => {
     const [allEstate, setAllEstate] = useState([])
     useEffect(() =>{
@@ -41,7 +42,7 @@ const Banner = () => {
                     <br /><FaArrowAltCircleRight className='mt-4' /></span></p>
                 </div>
             </div>
-            <div className='absolute right-8 bottom-28'>
+            <div className='absolute right-8 top-80'>
                 <img src="https://i.ibb.co/nfxcyvf/Humaaans-Standing.png"  className='transform scale-x-[-1] h-[520px]'/>
             </div>
             <div className='animate__animated animate__backInLeft animate__delay-1s flex gap-8 text-3xl font-semibold text-[#ff6725] justify-center mt-56'>
@@ -68,13 +69,23 @@ const Banner = () => {
                 </div>
             </div>
             {/* Estates */}
-            <div className='mt-12'>
+            <div className='mt-16'>
                 <div className='text-center'><h2 className='text-3xl font-bold text-[#21201e]'>Estates</h2></div>
-                <div className='grid grid-cols-3 gap-6 mt-10'>
+                <div className='animate__animated animate__fadeInRight animate__delay-2s grid grid-cols-3 gap-12 mt-10'>
                     {
                         allEstate.map(estate => <Estate key={estate.id} estate={estate}> </Estate>)
                     }
                 </div>
+            </div>
+            {/* Using map */}
+            <div className='mt-16'>
+                <div className='text-center'><h2 className='text-3xl font-bold text-[#21201e] pb-12'>Find Us On Map</h2></div>
+                <MapContainer center={[23.6850, 90.3563]} zoom={9} scrollWheelZoom={false} style={{width:"100%", height:400}}>
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                </MapContainer>
             </div>
         </div>
     );
