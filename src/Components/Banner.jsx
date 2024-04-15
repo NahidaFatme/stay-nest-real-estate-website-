@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import React, { useEffect, useState } from "react";
 import '../index.css';
 import { Pagination } from 'swiper/modules';
 import { FaArrowAltCircleRight } from "react-icons/fa";
@@ -8,7 +9,14 @@ import { FaUserClock } from "react-icons/fa";
 import { GiFamilyHouse } from "react-icons/gi";
 import { MdConnectWithoutContact } from "react-icons/md";
 import 'animate.css';
+import Estate from './Estate';
 const Banner = () => {
+    const [allEstate, setAllEstate] = useState([])
+    useEffect(() =>{
+            fetch('estates.json')
+            .then(res => res.json())
+            .then(data => setAllEstate(data))
+    }, []);
     return (
         <div className='relative'>
             <div className=" grid grid-cols-2 h-4/5 py-20 justify-center ">
@@ -57,6 +65,15 @@ const Banner = () => {
                         <p className='text-left '>2000 + </p>
                         <p className='text-base  text-white'> Daily User Visit</p>
                     </div>
+                </div>
+            </div>
+            {/* Estates */}
+            <div className='mt-12'>
+                <div className='text-center'><h2 className='text-3xl font-bold text-[#21201e]'>Estates</h2></div>
+                <div className='grid grid-cols-3 gap-6 mt-10'>
+                    {
+                        allEstate.map(estate => <Estate key={estate.id} estate={estate}> </Estate>)
+                    }
                 </div>
             </div>
         </div>

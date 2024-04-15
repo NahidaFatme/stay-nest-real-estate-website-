@@ -2,7 +2,7 @@ import { FaHotel } from "react-icons/fa6"
 const Footer = () => {
     return (
         <div>
-            <div className="relative mt-16 bg-white">
+            <div className="relative mt-28 bg-white">
             <svg
                 className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-accent-400"
                 preserveAspectRatio="none"

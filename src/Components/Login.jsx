@@ -3,13 +3,15 @@ import { AuthContext } from "./AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import 'animate.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const { loginUser, loginGoogle, loading } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
 
     if (loading) {
@@ -20,12 +22,12 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
 
         loginUser(email, password)
         .then(result => {
             // Signed in 
             const user = result.user;
+            navigate(location?.state ? location.state : './')
             toast.success("Login successful");
             console.log(user);
             // ...

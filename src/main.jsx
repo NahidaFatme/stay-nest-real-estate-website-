@@ -16,6 +16,7 @@ import ErrorPage from "./Components/error-page.jsx";
 import Profile from './Components/Profile.jsx';
 import Update from './Components/Update.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import EstateDetails from './Components/EstateDetails.jsx';
 
  const router = createBrowserRouter([ 
   { 
@@ -40,6 +41,11 @@ import PrivateRoute from './Components/PrivateRoute.jsx';
     {
       path: "/Update",
       element: <PrivateRoute><Update></Update></PrivateRoute>
+    },
+    {
+      path: '/Estate/:id',
+      element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
+      loader : () => fetch('/estates.json'),
     },
   ]
   }, 
