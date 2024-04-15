@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
 import { Link } from "react-router-dom";
 import 'animate.css';
@@ -55,6 +55,9 @@ const Registration = () => {
             toast.error(errorMessage);
           });
     };
+    useEffect(() => {
+        document.title = "Registration";
+    }, []);
     return (
         <div>
            <div className="hero min-h-screen">

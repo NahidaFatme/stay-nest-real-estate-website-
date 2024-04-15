@@ -18,6 +18,7 @@ import Update from './Components/Update.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import EstateDetails from './Components/EstateDetails.jsx';
 import "leaflet/dist/leaflet.css";
+import Contact from './Components/Contact.jsx';
  const router = createBrowserRouter([ 
   { 
   path: "/", 
@@ -41,6 +42,10 @@ import "leaflet/dist/leaflet.css";
     {
       path: "/Update",
       element: <PrivateRoute><Update></Update></PrivateRoute>
+    },
+    {
+      path: "/Contact",
+      element: <PrivateRoute><Contact></Contact></PrivateRoute>
     },
     {
       path: '/Estate/:id',

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
 import { ImProfile } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
@@ -6,6 +6,9 @@ import { MdInsertPhoto } from "react-icons/md";
 import { Link } from "react-router-dom";
 const Profile = () => {
     const { user} = useContext(AuthContext);
+    useEffect(() => {
+        document.title = "User Profile";
+    }, []);
     return (
         <div className="w-full my-10 ">
             <div class="card lg:card-side bg-base-100 shadow-xl w-4/5 mx-auto">

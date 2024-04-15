@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
@@ -52,6 +52,9 @@ const Login = () => {
             toast.error(errorMessage);
         });
     };
+    useEffect(() => {
+        document.title = "Login";
+    }, []);
     return (
         <div>
            <div className="hero min-h-screen">

@@ -1,10 +1,13 @@
-import { useRouteError } from "react-router-dom";
+import { useRouteError} from "react-router-dom";
 import { BiError } from "react-icons/bi";
 import { FaSadCry } from "react-icons/fa";
+import { useEffect } from "react";
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
-
+  useEffect(() => {
+    document.title = "Error page";
+ }, []);
   return (
     <div id="error-page" className="flex flex-col justify-center items-center gap-4 bg-gray-200 p-12 rounded-3xl">
       <div>

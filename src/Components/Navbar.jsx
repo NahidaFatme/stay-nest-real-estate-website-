@@ -27,7 +27,8 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2  rounded-box w-40 bg-zinc-100">
-                        <li><NavLink to="/">Home</NavLink></li>   
+                        <li><NavLink to="/">Home</NavLink></li> 
+                        <li><NavLink to="/Contact">Contact Us</NavLink></li>   
                     </ul>
                     </div>
                     <div className="flex gap-2 justify-center items-center">
@@ -38,6 +39,8 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">
                     <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><Link to="/">Home</Link></li>
+                    <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><a href="#estates">Estates</a></li>
+                    <li className="text-xl hover:text-[#ff6725] hover:font-semibold rounded-xl"><Link to="/Contact">Contact Us</Link></li>
                     
                     </ul>
                 </div> 

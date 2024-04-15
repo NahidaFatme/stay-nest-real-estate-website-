@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,6 +25,9 @@ const Update = () => {
             console.log(error.message);
           });
         }
+        useEffect(() => {
+            document.title = "Update Profile";
+        }, []);
     return (
         <div>
             <div className="min-w-screen max-h-1/2 bg-transparent flex items-center justify-center px-5 py-10">

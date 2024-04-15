@@ -8,6 +8,10 @@ const EstateDetails = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        document.title = "Propery Details";
+    }, []);
+
+    useEffect(() => {
         if (estates) {
             setLoading(false);
         }

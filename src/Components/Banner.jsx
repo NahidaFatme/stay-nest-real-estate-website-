@@ -69,7 +69,7 @@ const Banner = () => {
                 </div>
             </div>
             {/* Estates */}
-            <div className='mt-16'>
+            <div id='estates' className='mt-16'>
                 <div className='text-center'><h2 className='text-3xl font-bold text-[#21201e]'>Estates</h2></div>
                 <div className='animate__animated animate__fadeInRight animate__delay-2s grid grid-cols-3 gap-12 mt-10'>
                     {

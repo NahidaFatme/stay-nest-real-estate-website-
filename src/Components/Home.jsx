@@ -1,8 +1,11 @@
 import Banner from "./Banner";
 import Footer from "./Footer";
-import { Outlet } from "react-router-dom";
 import Login from "./Login";
+import { useEffect } from "react";
 const Home = () => {
+    useEffect(() => {
+        document.title = "Home";
+    }, []);
     return (
         <div>
             <Banner></Banner>
