@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "./AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate} from "react-router-dom";
@@ -9,14 +9,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const { loginUser, loginGoogle, loading } = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
-    const provider = new GoogleAuthProvider();
+    const { loginUser, loginGoogle, loading, loginGithub } = useContext(AuthContext);
 
     if (loading) {
         return <span className="loading loading-spinner loading-lg"></span>
     }
+    
+    const location = useLocation();
+    const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
+    const Gitprovider = new GithubAuthProvider();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -25,16 +27,12 @@ const Login = () => {
 
         loginUser(email, password)
         .then(result => {
-            // Signed in 
             const user = result.user;
             navigate(location?.state ? location.state : './')
             toast.success("Login successful");
-            console.log(user);
-            // ...
           })
           .catch((error) => {
             const errorMessage = error.message;
-            console.error(errorMessage);
             toast.error("Invalid email or password");
           });
     };
@@ -48,13 +46,26 @@ const Login = () => {
         })
         .catch(error => {
             const errorMessage = error.message;
-            console.log(errorMessage);
             toast.error(errorMessage);
         });
+    };
+
+    const handleLoginGithub = () => {
+        loginGithub(Gitprovider)
+        .then(result => {
+            const user = result.user;
+            toast.success("Signed in with Github");
+        })
+        .catch(error => {
+            const errorMessage = error.message;
+            toast.error(errorMessage);
+        });
+
     };
     useEffect(() => {
         document.title = "Login";
     }, []);
+
     return (
         <div>
            <div className="hero min-h-screen">
@@ -90,7 +101,7 @@ const Login = () => {
                             <p>or signin with</p>
                             <div className="flex gap-3 text-4xl">
                                 <button onClick={handleSigninGoogle}><FcGoogle /></button>
-                                <button><FaGithub  /></button>
+                                <button onClick={handleLoginGithub} ><FaGithub  /></button>
                             </div>
                         </div>
                     </form>
