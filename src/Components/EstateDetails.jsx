@@ -21,14 +21,14 @@ const EstateDetails = () => {
     return (
         <div className="my-8">
             <div className="card lg:card-side bg-base-100 shadow-xl">
-            <div className="w-[50%] h-cover">
+            <div className="w-full lg:w-[50%] h-cover">
                 <img 
                     src={estate.image} 
-                    className=" object-cover object-center h-full rounded-l-2xl" 
+                    className=" object-cover object-center w-full  h-full rounded-t-2xl lg:rounded-l-2xl" 
                 />
             </div>
 
-            <div className="card-body w-[50%] gap-4">
+            <div className="card-body w-full lg:w-[50%] gap-4">
                 <div className="flex gap-3 text-lg justify-center items-center text-gray-500">
                     <MdLocationOn />
                     <p>{estate.location}</p>
@@ -42,13 +42,13 @@ const EstateDetails = () => {
                 </div>
                 <p className="text-gray-500 text-lg text-semibold">{estate.area}</p>
                 <p className="text-xl font-black">Facilities</p>
-                <div className="flex justify-evenly gap-10">
+                <div className="flex flex-col md:flex-row lg:flex-row justify-evenly gap-4 md:gap-8 lg:gap-10">
                     {
                         estate.facilities.map(facilitie => <p className="bg-[#fbebd6] p-3 rounded-lg text-center text-lg font-semibold text-gray-800">{facilitie}</p>)
                     }
                 </div>
                 <p className="text-gray-800 font-bold text-xl">Description:</p>
-                <p className="text-gray-600 text-lg break-words flex-wrap ">{estate.description}</p>
+                <p className="text-gray-600 text-lg break-words flex-wrap text-justify">{estate.description}</p>
                 <div className="card-actions justify-end">
                 <Link to="../" className="btn bg-[#ff6725] text-white">Go Back</Link>
                 </div>

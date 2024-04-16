@@ -10,7 +10,7 @@ const Estate = ({estate}) => {
     const {estate_title, segment_name, description,price,status,area, location, facilities, image, id} = estate;
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-90 md:w-80 lg:w-96 bg-base-100 shadow-xl">
             <figure><img src={image} /></figure>
             <div className="card-body flex flex-col gap-5">
                 <div>
@@ -28,7 +28,7 @@ const Estate = ({estate}) => {
                     <p className="flex gap-1 justify-center items-center border-2 border-[#ff6725] rounded-full"><IoResizeOutline /> {area}</p>
                     <p className="flex gap-1 justify-center items-center border-2 border-[#ff6725] rounded-full"><MdLocationOn /> {location}</p>
                 </div>
-                <div className="card-actions justify-between items-center pt-5">
+                <div className="card-actions justify-between items-center grow pt-5">
                     <div className="flex gap-2 justify-center items-center text-3xl font-bold">
                         <h2>{price} <span className="text-sm font-normal">per night</span></h2>
                     </div>

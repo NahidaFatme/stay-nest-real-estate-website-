@@ -31,9 +31,9 @@ const Navbar = () => {
                         <li><NavLink to="/Contact">Contact Us</NavLink></li>   
                     </ul>
                     </div>
-                    <div className="flex gap-2 justify-center items-center">
-                    <FaHotel className="text-2xl"/>
-                    <a className="text-2xl lg:text-3xl font-bold text-color">Stay Nest</a>
+                    <div className="flex flex-col md:flex-row lg:flex-row gap-2 justify-start lg:justify-center items-center">
+                        <FaHotel className="text-2xl"/>
+                        <a className="text-2xl lg:text-3xl font-bold text-color">Stay Nest</a>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

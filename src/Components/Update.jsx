@@ -30,10 +30,10 @@ const Update = () => {
         }, []);
     return (
         <div>
-            <div className="min-w-screen max-h-1/2 bg-transparent flex items-center justify-center px-5 py-10">
+            <div className="min-w-screen max-h-1/2 bg-transparent flex flex-col md:flex-col lg:flex-row items-center justify-center px-5 py-10">
             <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style={{ maxWidth: '1000px' }}>
-                <div className="md:flex w-full ">
-                    <div className=" md:block w-1/2  bg-indigo-500 pl-24 pt-24">
+                <div className="md:flex h-full w-full ">
+                    <div className="flex flex-col w-full md:w-1/2 lg:w-1/2  bg-indigo-500 justify-center items-center py-12 md:py-12 lg:py-12 ">
                         <img src={user?.photoURL || "https://i.ibb.co/6yJypwW/Open-Peeps-Bust.png"}className=" rounded-full w-3/4 h-3/2 border-[15px] border-orange-500"  />
                     </div>
                     <div className="w-full md:w-1/2 py-5 px-5 md:px-10">

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Root = () => {
     return (
         <div className={`h-full bg-cover mx-auto bg-[#f9f3eb] `}>
-            <div className="mx-24">
+            <div className="mx-4 md:mx-12 lg:mx-24">
                 <Navbar></Navbar>
                 <Outlet></Outlet>
             </div>
