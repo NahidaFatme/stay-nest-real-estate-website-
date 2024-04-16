@@ -19,7 +19,7 @@ const EstateDetails = () => {
 
     const estate = estates.find(estate => estate.id === intId);
     return (
-        <div className="my-8">
+        <div className="my-5 md:my-8 lg:my-8">
             <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="w-full lg:w-[50%] h-cover">
                 <img 

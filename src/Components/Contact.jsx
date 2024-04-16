@@ -6,7 +6,7 @@ const Contact = () => {
         document.title = "Contact";
     }, []);
     return (
-        <div className="my-12 ">
+        <div className="my-5 md:my-10 lg:my-12">
             <div className="hero min-h-screen rounded-3xl" style={{backgroundImage: 'url(https://i.ibb.co/SxTsnzB/bg.jpg)'}}>
             <div className="hero-overlay bg-opacity-70 rounded-3xl"></div>
             <div className="hero-content text-center text-neutral-content">

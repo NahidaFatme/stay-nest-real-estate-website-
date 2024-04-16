@@ -24,7 +24,7 @@ const Banner = () => {
 
     return (
         <div className='relative'>
-            <div className=" grid grid-cols-1 lg:grid-cols-2 h-4/5 py-20 justify-center ">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 h-4/5 py-5 md:18 lg:py-20 justify-center ">
                 <div className='animate__animated animate__backInLeft'>
                 <Swiper
                     slidesPerView={1}
