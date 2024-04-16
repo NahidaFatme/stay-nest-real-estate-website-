@@ -6,7 +6,7 @@
     "description": "Indulge in the ultimate luxury experience at our beachfront resort. Our elegant suites offer breathtaking ocean views, and our world-class amenities include a state-of-the-art spa, infinity swimming pool, and a private beach.",
     "price": "$500",
     "status": "rent",
-    "area": "5000 ft2",
+    "area": "5000 sq ft",
     "location": "Miami, FL",
     "facilities": ["Swimming Pool", "Spa", "Private Beach"],
     "image": "https://i.ibb.co/9YyHSV9/5.jpg"
@@ -18,7 +18,7 @@
     "description": "Immerse yourself in the vibrant city life at our modern downtown hotel. Located in the heart of the city, our hotel offers stylish rooms, a well-equipped gym, an elegant restaurant, and a cozy bar for your enjoyment.",
     "price": "$200",
     "status": "sale",
-    "area": "3000 ft2",
+    "area": "3000 sq ft",
     "location": "New York, NY",
     "facilities": ["Gym", "Restaurant", "Bar"],
     "image": "https://i.ibb.co/vJ50c9R/4.jpg"
@@ -30,7 +30,7 @@
     "description": "Escape to the serenity of the mountains at our cozy lodge. Nestled amidst breathtaking mountain views, our lodge offers comfortable accommodations, a rustic fireplace, access to skiing and hiking trails, and a tranquil ambiance for relaxation.",
     "price": "$300",
     "status": "rent",
-    "area": "4000 ft2",
+    "area": "4000 sq ft",
     "location": "Aspen, CO",
     "facilities": ["Fireplace", "Skiing", "Hiking Trails"],
     "image": "https://i.ibb.co/6bfYG34/gh1.jpg"
@@ -42,7 +42,7 @@
     "description": "Experience coastal charm at our charming guesthouse by the sea. Enjoy stunning ocean views, relax on the terrace, and take advantage of our free Wi-Fi. Perfect for a tranquil getaway by the beach.",
     "price": "$150",
     "status": "sale",
-    "area": "2500 ft2",
+    "area": "2500 sq ft",
     "location": "San Diego, CA",
     "facilities": ["Ocean View", "Terrace", "Free Wi-Fi"],
     "image": "https://i.ibb.co/JK6q4gB/2.jpg"
@@ -54,7 +54,7 @@
     "description": "Step into a world of rustic charm at our traditional country inn. Located in a peaceful countryside setting, our inn offers a beautiful garden, a cozy wine cellar, and complimentary breakfast. Experience the warmth of country hospitality.",
     "price": "$100",
     "status": "sale",
-    "area": "3500 ft2",
+    "area": "3500 sq ft",
     "location": "Napa Valley, CA",
     "facilities": ["Garden", "Wine Cellar", "Free Breakfast"],
     "image": "https://i.ibb.co/BjZnLnv/3.jpg"
@@ -66,7 +66,7 @@
     "description": "Embrace the thrill of winter sports at our picturesque ski resort. Located in the scenic Lake Tahoe, our resort offers ski rentals, a relaxing hot tub, and a delightful restaurant. Experience the magic of winter at Ice Berg Resort.",
     "price": "$400",
     "status": "rent",
-    "area": "4500 ft2",
+    "area": "4500 sq ft",
     "location": "Lake Tahoe, CA",
     "facilities": ["Ski Rental", "Hot Tub", "Restaurant"],
     "image": "https://i.ibb.co/YNmSDS2/1.jpg"
