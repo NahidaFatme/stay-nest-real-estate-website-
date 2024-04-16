@@ -3,6 +3,7 @@
 This website shows you top class hotels, guesthouse, resorts and motels to rent or buy.
 
 - [Stay Nest Website Link](https://staynest-d0d40.web.app/)
+- [https://staynest-d0d40.web.app/](https://staynest-d0d40.web.app/)
 
 Features:
 - Dynamic Login and Registration: Users can create accounts and log in using email/password or through Google and GitHub authentication options.
