@@ -1,8 +1,17 @@
-# React + Vite
+# Stay Nest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website shows you top class hotels, guesthouse, resorts and motels to rent or buy.
 
-Currently, two official plugins are available:
+- [Stay Nest Website Link](https://staynest-d0d40.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features:
+- [Dynamic Login and Registration: Users can create accounts and log in using email/password or through Google and GitHub authentication options.]
+-[Users can view and update their profiles, including details such as display name and profile picture.]
+-[ccess a curated list of popular hotels, motels, and other properties, providing users with a variety of accommodation options.]
+-[ Secure access to property details is ensured through private routes, allowing only authenticated users to view detailed property information.]
+-[The website is optimized for various devices, including mobile phones, tablets, and desktops.]
+
+Special NPM packages used are:
+-[Animate.css]
+-[React leaflet]
+-[Swiper slider]
